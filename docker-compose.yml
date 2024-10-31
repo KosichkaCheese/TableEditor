@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:13  # Официальный образ PostgreSQL
+    container_name: test_db
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test_db
+    ports:
+      - "5433:5432"  # Пробрасываем порт PostgreSQL
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Подключаем volume для сохранения данных
+
+volumes:
+  db_data:
